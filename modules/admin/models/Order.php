@@ -62,6 +62,6 @@ class Order extends \yii\db\ActiveRecord
         ];
     }
     public  function getOrderItem(){
-        return $this->hasMany(OrderItmes::className(), ['order_id'=>'id']);
+        return $this->hasMany(OrderItmes::className(), ['id'=>'order_id']);
     }
 }
