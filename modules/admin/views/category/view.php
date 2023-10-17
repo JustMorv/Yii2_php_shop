@@ -4,21 +4,21 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /** @var yii\web\View $this */
-/** @var app\modules\admin\models\Order $model */
+/** @var app\modules\admin\models\Category $model */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Orders', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Categories', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="order-view">
+<div class="category-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger mt-4',
+            'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
                 'method' => 'post',
@@ -30,17 +30,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'created_at',
-            'update_at',
-            'qty',
-            'sum',
-            'status',
+            'parent_id',
             'name',
-            'email:email',
-            'phone',
-            'adress',
+            'keywords',
+            'description',
         ],
     ]) ?>
-<?php $items = $model->getOrderItem() ;?>
-    <?=debug($items)?>
+
 </div>
